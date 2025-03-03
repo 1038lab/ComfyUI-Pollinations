@@ -10,13 +10,12 @@ $$\textcolor{red}{\Huge \text{It's a great encouragement for my efforts!}}$$
 ## Nodes Overview
 
 ### Support Model List
-Image Generation model List
+
   | Image Generation Models       |
   |-------------------------------|
   | flux                          |
   | turbo                         |
-  
-Text Generation model List
+
   | Text Generation Models       | Text Generation Models       | Text Generation Models       | Text Generation Models       |
   |-------------------------------|-------------------------------|-------------------------------|-------------------------------|
   | openai                        | openai-large                  | openai-reasoning              | qwen-coder                   |
