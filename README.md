@@ -9,7 +9,9 @@ $$\textcolor{red}{\Huge \text{It's a great encouragement for my efforts!}}$$
 
 ## Nodes Overview
 
-### Support Model List
+### ![ComfyUI-pollinations](https://github.com/user-attachments/assets/017f69c4-c3e6-4243-8de9-23053b4b0ffd)
+
+Support Model List
 
   | Image Generation Models       |
   |-------------------------------|
