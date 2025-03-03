@@ -6,6 +6,23 @@ ComfyUI-Pollinations is a custom node for ComfyUI that utilizes the Pollinations
 
 ## Nodes Overview
 
+### Support Model List
+Image Generation model List
+  | Image Generation Models       |
+  |-------------------------------|
+  | flux                          |
+  | turbo                         |
+  
+Text Generation model List
+  | Text Generation Models       | Text Generation Models       | Text Generation Models       | Text Generation Models       |
+  |-------------------------------|-------------------------------|-------------------------------|-------------------------------|
+  | openai                        | openai-large                  | openai-reasoning              | qwen-coder                   |
+  | llama                         | mistral                       | unity                         | midijourney                   |
+  | rtist                         | searchgpt                     | evil                          | deepseek                      |
+  | claude-hybridspace            | deepseek-r1                   | deepseek-reasoner             | llamalight                    |
+  | llamaguard                    | gemini                        | gemini-thinking               | hormoz                        |
+  | hypnosis-tracy                | sur                           | sur-mistral                   | llama-scaleway                |
+
 ### 1. PollinationsImageGen
 
 - **Function**: Generates images based on a textual prompt.
