@@ -249,6 +249,6 @@ NODE_CLASS_MAPPINGS = {
 
 # UI display name
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "PollinationsImageGen": "Pollinations Image Generation",
-    "PollinationsTextGen": "Pollinations Text Generation",
+    "PollinationsImageGen": "Pollinations Image Gen 🖼️",
+    "PollinationsTextGen": "Pollinations Text Gen 📝",
 } 
