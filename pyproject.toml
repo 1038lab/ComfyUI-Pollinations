@@ -1,0 +1,21 @@
+[project]
+name = "comfyui-Pollinations"
+description = "ComfyUI integration for Pollinations API - Generate images and text based on user prompts"
+version = "1.0.0"
+license = {file = "LICENSE"}
+
+dependencies = [
+    "requests>=2.25.1,<3.0.0",
+    "Pillow>=8.0.0,<9.0.0",
+    "numpy>=1.19.5,<2.0.0",
+    "torch>=1.7.0,<2.0.0"
+]
+    
+[project.urls]
+Repository = "https://github.com/1038lab/ComfyUI-Pollinations"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "ailab"
+DisplayName = "ComfyUI-Pollinations"
+Icon = ""
