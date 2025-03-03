@@ -56,10 +56,14 @@ install requirment.txt in the ComfyUI-Pollinations folder
 After installation, you can use the nodes in your ComfyUI workflow. Simply drag and drop the `PollinationsImageGen` or `PollinationsTextGen` nodes into your canvas and configure the input parameters as needed.
 
 ### PollinationsImageGen Node
-
+![ImageGen](https://github.com/user-attachments/assets/508a08c0-df49-4a18-9e8a-5c1be10084db)
+![ImageGen_2](https://github.com/user-attachments/assets/82354742-c91b-466c-b913-dbf78e587b9e)
+Generate 4 images simultaneously
 
 ### PollinationsTextGen Node
+![TextGen](https://github.com/user-attachments/assets/30f774c4-c0b4-4122-aede-4c6f47be6721)
 
+![TextGen_2](https://github.com/user-attachments/assets/a2069c7a-e4c0-4581-a2cb-96d532adb04b)
 
 ## Contributing
 
