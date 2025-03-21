@@ -1,0 +1,91 @@
+{
+  "PollinationsImageGen": {
+    "display_name": "Pollinations Image Gen 🖼️",
+    "inputs": {
+      "prompt": {
+        "name": "Prompt"
+      },
+      "model": {
+        "name": "Model"
+      },
+      "width": {
+        "name": "Width"
+      },
+      "height": {
+        "name": "Height"
+      },
+      "batch_size": {
+        "name": "Batch Size"
+      },
+      "negative_prompt": {
+        "name": "Negative Prompt"
+      },
+      "seed": {
+        "name": "Seed"
+      },
+      "enhance": {
+        "name": "Enhance"
+      },
+      "nologo": {
+        "name": "No Logo"
+      },
+      "private": {
+        "name": "Private"
+      },
+      "safe": {
+        "name": "Safe"
+      }
+    }
+  },
+  "PollinationsTextGen": {
+    "display_name": "Pollinations Text Gen 📝",
+    "inputs": {
+      "prompt": {
+        "name": "Prompt"
+      },
+      "model": {
+        "name": "Model"
+      },
+      "seed": {
+        "name": "Seed"
+      },
+      "private": {
+        "name": "Private"
+      }
+    }
+  },
+  "PollinationsImageFeed": {
+    "display_name": "Pollinations Image Feed 🖼️",
+    "inputs": {
+      "count": {
+        "name": "Count"
+      },
+      "model": {
+        "name": "Model"
+      },
+      "prompt": {
+        "name": "Prompt"
+      },
+      "force_refresh": {
+        "name": "Force Refresh"
+      }
+    }
+  },
+    "PollinationsTextFeed": {
+    "display_name": "Pollinations Text Feed 📝",
+    "inputs": {
+      "count": {
+        "name": "Count"
+      },
+      "model": {
+        "name": "Model"
+      },
+      "prompt": {
+        "name": "Prompt"
+      },
+      "force_refresh": {
+        "name": "Force Refresh"
+      }
+    }
+  }
+}

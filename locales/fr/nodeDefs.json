@@ -1,0 +1,91 @@
+{
+  "PollinationsImageGen": {
+    "display_name": "Générateur d'images Pollinations 🖼️",
+    "inputs": {
+      "prompt": {
+        "name": "Invite"
+      },
+      "model": {
+        "name": "Modèle"
+      },
+      "width": {
+        "name": "Largeur"
+      },
+      "height": {
+        "name": "Hauteur"
+      },
+      "batch_size": {
+        "name": "Taille du lot"
+      },
+      "negative_prompt": {
+        "name": "Invite négative"
+      },
+      "seed": {
+        "name": "Graine"
+      },
+      "enhance": {
+        "name": "Améliorer"
+      },
+      "nologo": {
+        "name": "Pas de logo"
+      },
+      "private": {
+        "name": "Privé"
+      },
+      "safe": {
+        "name": "Sûr"
+      }
+    }
+  },
+  "PollinationsTextGen": {
+    "display_name": "Générateur de texte Pollinations 📝",
+    "inputs": {
+      "prompt": {
+        "name": "Invite"
+      },
+      "model": {
+        "name": "Modèle"
+      },
+      "seed": {
+        "name": "Graine"
+      },
+      "private": {
+        "name": "Privé"
+      }
+    }
+  },
+  "PollinationsImageFeed": {
+    "display_name": "Fil d'images Pollinations 🖼️",
+    "inputs": {
+      "count": {
+        "name": "Nombre"
+      },
+      "model": {
+        "name": "Modèle"
+      },
+      "prompt": {
+        "name": "Invite"
+      },
+      "force_refresh": {
+        "name": "Forcer le rafraîchissement"
+      }
+    }
+  },
+  "PollinationsTextFeed": {
+    "display_name": "Fil de texte Pollinations 📝",
+    "inputs": {
+      "count": {
+        "name": "Nombre"
+      },
+      "model": {
+        "name": "Modèle"
+      },
+      "prompt": {
+        "name": "Invite"
+      },
+      "force_refresh": {
+        "name": "Forcer le rafraîchissement"
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "PollinationsImageGen": {
+    "display_name": "Pollinations 이미지 생성 🖼️",
+    "inputs": {
+      "prompt": {
+        "name": "프롬프트"
+      },
+      "model": {
+        "name": "모델"
+      },
+      "width": {
+        "name": "너비"
+      },
+      "height": {
+        "name": "높이"
+      },
+      "batch_size": {
+        "name": "배치 크기"
+      },
+      "negative_prompt": {
+        "name": "부정적 프롬프트"
+      },
+      "seed": {
+        "name": "시드"
+      },
+      "enhance": {
+        "name": "강화"
+      },
+      "nologo": {
+        "name": "로고 없음"
+      },
+      "private": {
+        "name": "비공식"
+      },
+      "safe": {
+        "name": "안전"
+      }
+    }
+  },
+  "PollinationsTextGen": {
+    "display_name": "Pollinations 텍스트 생성 📝",
+    "inputs": {
+      "prompt": {
+        "name": "프롬프트"
+      },
+      "model": {
+        "name": "모델"
+      },
+      "seed": {
+        "name": "시드"
+      },
+      "private": {
+        "name": "비공식"
+      }
+    }
+  },
+  "PollinationsImageFeed": {
+    "display_name": "Pollinations 이미지 피드 🖼️",
+    "inputs": {
+      "count": {
+        "name": "수"
+      },
+      "model": {
+        "name": "모델"
+      },
+      "prompt": {
+        "name": "프롬프트"
+      },
+      "force_refresh": {
+        "name": "강제 새로 고침"
+      }
+    }
+  },
+  "PollinationsTextFeed": {
+    "display_name": "Pollinations 텍스트 피드 📝",
+    "inputs": {
+      "count": {
+        "name": "수"
+      },
+      "model": {
+        "name": "모델"
+      },
+      "prompt": {
+        "name": "프롬프트"
+      },
+      "force_refresh": {
+        "name": "강제 새로 고침"
+      }
+    }
+  }
+}

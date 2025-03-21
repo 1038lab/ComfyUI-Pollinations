@@ -1,0 +1,91 @@
+{
+  "PollinationsImageGen": {
+    "display_name": "Pollinations 图像生成 🖼️",
+    "inputs": {
+      "prompt": {
+        "name": "提示"
+      },
+      "model": {
+        "name": "模型"
+      },
+      "width": {
+        "name": "宽度"
+      },
+      "height": {
+        "name": "高度"
+      },
+      "batch_size": {
+        "name": "批量大小"
+      },
+      "negative_prompt": {
+        "name": "负面提示"
+      },
+      "seed": {
+        "name": "种子"
+      },
+      "enhance": {
+        "name": "增强"
+      },
+      "nologo": {
+        "name": "无标志"
+      },
+      "private": {
+        "name": "私有"
+      },
+      "safe": {
+        "name": "安全"
+      }
+    }
+  },
+  "PollinationsTextGen": {
+    "display_name": "Pollinations 文本生成 📝",
+    "inputs": {
+      "prompt": {
+        "name": "提示"
+      },
+      "model": {
+        "name": "模型"
+      },
+      "seed": {
+        "name": "种子"
+      },
+      "private": {
+        "name": "私有"
+      }
+    }
+  },
+  "PollinationsImageFeed": {
+    "display_name": "Pollinations 图像提要 🖼️",
+    "inputs": {
+      "count": {
+        "name": "数量"
+      },
+      "model": {
+        "name": "模型"
+      },
+      "prompt": {
+        "name": "提示"
+      },
+      "force_refresh": {
+        "name": "强制刷新"
+      }
+    }
+  },
+  "PollinationsTextFeed": {
+    "display_name": "Pollinations 文本提要 📝",
+    "inputs": {
+      "count": {
+        "name": "数量"
+      },
+      "model": {
+        "name": "模型"
+      },
+      "prompt": {
+        "name": "提示"
+      },
+      "force_refresh": {
+        "name": "强制刷新"
+      }
+    }
+  }
+}
