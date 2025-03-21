@@ -11,6 +11,7 @@ $$\textcolor{red}{\Huge \text{It's a great encouragement for my efforts!}}$$
 - V1.1.0 (2025-03-21): Integrated internationalization (`i18n`) support for multiple languages.
 
 ![v1 1 0](https://github.com/user-attachments/assets/c2391cc6-3284-4d14-aa91-7bb0145028db)
+(This the `i18n` Demo with `Chinese` UI)
 
 ## Nodes Overview
 
