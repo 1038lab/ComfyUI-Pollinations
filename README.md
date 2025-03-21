@@ -7,9 +7,15 @@ ComfyUI-Pollinations is a custom node for ComfyUI that utilizes the Pollinations
 $$\textcolor{red}{\Huge \text{If this custom node helps you or you like Our work, please give me ⭐ on this repo!}}$$  
 $$\textcolor{red}{\Huge \text{It's a great encouragement for my efforts!}}$$
 
+## Update
+- V1.1.0 (2025-03-21): Integrated internationalization (`i18n`) support for multiple languages.
+
+![v1 1 0](https://github.com/user-attachments/assets/c2391cc6-3284-4d14-aa91-7bb0145028db)
+
 ## Nodes Overview
 
 ### ![ComfyUI-pollinations](https://github.com/user-attachments/assets/017f69c4-c3e6-4243-8de9-23053b4b0ffd)
+
 
 Support Model List
 
