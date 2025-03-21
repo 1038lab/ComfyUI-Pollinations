@@ -1,5 +1,5 @@
 [project]
-name = "ComfyUI-Pollinations"
+name = "comfyui-Pollinations"
 description = "ComfyUI integration for Pollinations API - Generate images and text based on user prompts"
 version = "1.1.0"
 license = {file = "LICENSE"}
