@@ -1,8 +1,8 @@
 {
   "id": "2c9335d1-ff64-4606-9032-0c14eff9c3cc",
   "revision": 0,
-  "last_node_id": 25,
-  "last_link_id": 18,
+  "last_node_id": 28,
+  "last_link_id": 21,
   "nodes": [
     {
       "id": 20,
@@ -25,8 +25,8 @@
           "type": "STRING",
           "slot_index": 0,
           "links": [
-            14,
-            15
+            15,
+            19
           ]
         }
       ],
@@ -44,7 +44,7 @@
       "widgets_values": [
         "create a text to image prompt for a love story",
         "OpenAI GPT-4.1-mini",
-        653781800555473,
+        0,
         "randomize",
         true,
         [
@@ -65,7 +65,7 @@
         473.70001220703125
       ],
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "inputs": [
         {
@@ -93,7 +93,7 @@
           "type": "STRING",
           "slot_index": 1,
           "links": [
-            17
+            21
           ]
         },
         {
@@ -101,7 +101,7 @@
           "type": "STRING",
           "slot_index": 2,
           "links": [
-            18
+            20
           ]
         }
       ],
@@ -142,52 +142,6 @@
       ]
     },
     {
-      "id": 22,
-      "type": "ShowText|pysssss",
-      "pos": [
-        1585.9425048828125,
-        566.955078125
-      ],
-      "size": [
-        403,
-        197.89999389648438
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 14
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "shape": 6,
-          "type": "STRING",
-          "links": null
-        }
-      ],
-      "properties": {
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65,
-        "cnr_id": "comfyui-custom-scripts",
-        "ver": "9f7b3215e6af317603056a9a1666bf6e83e28835",
-        "Node name for S&R": "ShowText|pysssss",
-        "widget_ue_connectable": {}
-      },
-      "widgets_values": [
-        "Certainly! Here's a vivid text-to-image prompt for a love story scene:\n\n\"A tender sunset over a quaint countryside village, where a young couple stands hand in hand on a rustic wooden bridge, gazing into each other's eyes with warmth and hope. Soft golden light bathes their faces, highlighting their gentle smiles. In the background, blooming cherry blossoms drift in the breeze, and a lazy river meanders beneath the bridge, reflecting the fiery hues of dusk. The scene exudes romance, serenity, and the promise of forever.\"\n\nWould you like it to be more poetic, cinematic, or perhaps include specific characters or elements?"
-      ]
-    },
-    {
       "id": 23,
       "type": "PreviewImage",
       "pos": [
@@ -225,24 +179,24 @@
       "widgets_values": []
     },
     {
-      "id": 24,
+      "id": 26,
       "type": "ShowText|pysssss",
       "pos": [
-        2576.576904296875,
-        1076.2166748046875
+        1584.3817138671875,
+        570
       ],
       "size": [
-        614.2000122070312,
-        223.70005798339844
+        414.29998779296875,
+        200
       ],
       "flags": {},
-      "order": 4,
+      "order": 2,
       "mode": 0,
       "inputs": [
         {
           "name": "text",
           "type": "STRING",
-          "link": 17
+          "link": 19
         }
       ],
       "outputs": [
@@ -262,25 +216,21 @@
         "secondTabOffset": 80,
         "secondTabWidth": 65,
         "cnr_id": "comfyui-custom-scripts",
-        "ver": "9f7b3215e6af317603056a9a1666bf6e83e28835",
-        "Node name for S&R": "ShowText|pysssss",
-        "widget_ue_connectable": {}
-      },
-      "widgets_values": [
-        "https://image.pollinations.ai/prompt/Certainly%21%20Here%27s%20a%20vivid%20text-to-image%20prompt%20for%20a%20love%20story%20scene%3A%0A%0A%22A%20tender%20sunset%20over%20a%20quaint%20countryside%20village%2C%20where%20a%20young%20couple%20stands%20hand%20in%20hand%20on%20a%20rustic%20wooden%20bridge%2C%20gazing%20into%20each%20other%27s%20eyes%20with%20warmth%20and%20hope.%20Soft%20golden%20light%20bathes%20their%20faces%2C%20highlighting%20their%20gentle%20smiles.%20In%20the%20background%2C%20blooming%20cherry%20blossoms%20drift%20in%20the%20breeze%2C%20and%20a%20lazy%20river%20meanders%20beneath%20the%20bridge%2C%20reflecting%20the%20fiery%20hues%20of%20dusk.%20The%20scene%20exudes%20romance%2C%20serenity%2C%20and%20the%20promise%20of%20forever.%22%0A%0AWould%20you%20like%20it%20to%20be%20more%20poetic%2C%20cinematic%2C%20or%20perhaps%20include%20specific%20characters%20or%20elements%3F?model=flux&width=1280&height=720&seed=674121808964137&nologo=true&private=true&enhance=true",
-        "https://image.pollinations.ai/prompt/Certainly%21%20Here%27s%20a%20vivid%20text-to-image%20prompt%20for%20a%20love%20story%20scene%3A%0A%0A%22A%20tender%20sunset%20over%20a%20quaint%20countryside%20village%2C%20where%20a%20young%20couple%20stands%20hand%20in%20hand%20on%20a%20rustic%20wooden%20bridge%2C%20gazing%20into%20each%20other%27s%20eyes%20with%20warmth%20and%20hope.%20Soft%20golden%20light%20bathes%20their%20faces%2C%20highlighting%20their%20gentle%20smiles.%20In%20the%20background%2C%20blooming%20cherry%20blossoms%20drift%20in%20the%20breeze%2C%20and%20a%20lazy%20river%20meanders%20beneath%20the%20bridge%2C%20reflecting%20the%20fiery%20hues%20of%20dusk.%20The%20scene%20exudes%20romance%2C%20serenity%2C%20and%20the%20promise%20of%20forever.%22%0A%0AWould%20you%20like%20it%20to%20be%20more%20poetic%2C%20cinematic%2C%20or%20perhaps%20include%20specific%20characters%20or%20elements%3F?model=flux&width=1280&height=720&seed=674121808964138&nologo=true&private=true&enhance=true"
-      ]
+        "ver": "aac13aa7ce35b07d43633c3bbe654a38c00d74f5",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ShowText|pysssss"
+      }
     },
     {
-      "id": 25,
+      "id": 27,
       "type": "ShowText|pysssss",
       "pos": [
-        2035.9779052734375,
-        1075.6767578125
+        2040,
+        1080
       ],
       "size": [
-        519.5999755859375,
-        226.49996948242188
+        500,
+        220
       ],
       "flags": {},
       "order": 5,
@@ -289,7 +239,7 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 18
+          "link": 20
         }
       ],
       "outputs": [
@@ -309,25 +259,56 @@
         "secondTabOffset": 80,
         "secondTabWidth": 65,
         "cnr_id": "comfyui-custom-scripts",
-        "ver": "9f7b3215e6af317603056a9a1666bf6e83e28835",
-        "Node name for S&R": "ShowText|pysssss",
-        "widget_ue_connectable": {}
-      },
-      "widgets_values": [
-        "Certainly! Here's a vivid text-to-image prompt for a love story scene:\n\n\"A tender sunset over a quaint countryside village, where a young couple stands hand in hand on a rustic wooden bridge, gazing into each other's eyes with warmth and hope. Soft golden light bathes their faces, highlighting their gentle smiles. In the background, blooming cherry blossoms drift in the breeze, and a lazy river meanders beneath the bridge, reflecting the fiery hues of dusk. The scene exudes romance, serenity, and the promise of forever.\"\n\nWould you like it to be more poetic, cinematic, or perhaps include specific characters or elements?",
-        "Certainly! Here's a vivid text-to-image prompt for a love story scene:\n\n\"A tender sunset over a quaint countryside village, where a young couple stands hand in hand on a rustic wooden bridge, gazing into each other's eyes with warmth and hope. Soft golden light bathes their faces, highlighting their gentle smiles. In the background, blooming cherry blossoms drift in the breeze, and a lazy river meanders beneath the bridge, reflecting the fiery hues of dusk. The scene exudes romance, serenity, and the promise of forever.\"\n\nWould you like it to be more poetic, cinematic, or perhaps include specific characters or elements?"
-      ]
+        "ver": "aac13aa7ce35b07d43633c3bbe654a38c00d74f5",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ShowText|pysssss"
+      }
+    },
+    {
+      "id": 28,
+      "type": "ShowText|pysssss",
+      "pos": [
+        2580,
+        1080
+      ],
+      "size": [
+        500,
+        220
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "aac13aa7ce35b07d43633c3bbe654a38c00d74f5",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ShowText|pysssss"
+      }
     }
   ],
   "links": [
-    [
-      14,
-      20,
-      0,
-      22,
-      0,
-      "STRING"
-    ],
     [
       15,
       20,
@@ -345,18 +326,26 @@
       "IMAGE"
     ],
     [
-      17,
-      21,
-      1,
-      24,
+      19,
+      20,
+      0,
+      26,
       0,
       "STRING"
     ],
     [
-      18,
+      20,
       21,
       2,
-      25,
+      27,
+      0,
+      "STRING"
+    ],
+    [
+      21,
+      21,
+      1,
+      28,
       0,
       "STRING"
     ]
@@ -367,8 +356,8 @@
     "ds": {
       "scale": 0.9090909090909091,
       "offset": [
-        -1325.796613493703,
-        -166.35870376340642
+        -997.6334110385794,
+        -320.15948695382446
       ]
     },
     "ue_links": [],
