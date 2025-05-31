@@ -1,0 +1,108 @@
+{
+  "PollinationsImageGen": {
+    "display_name": "Image Gen 🖼️ (Pollinations)",
+    "inputs": {
+      "prompt": {
+        "name": "Prompt"
+      },
+      "model": {
+        "name": "Model"
+      },
+      "width": {
+        "name": "Width"
+      },
+      "height": {
+        "name": "Height"
+      },
+      "batch_size": {
+        "name": "Batch Size"
+      },
+      "negative_prompt": {
+        "name": "Negative Prompt"
+      },
+      "seed": {
+        "name": "Seed"
+      },
+      "enhance": {
+        "name": "Enhance"
+      },
+      "nologo": {
+        "name": "No Logo"
+      },
+      "private": {
+        "name": "Private"
+      },
+      "safe": {
+        "name": "Safe"
+      }
+    }
+  },
+  "PollinationsTextGen": {
+    "display_name": "Text Gen 📝 (Pollinations)",
+    "inputs": {
+      "prompt": {
+        "name": "Prompt"
+      },
+      "model": {
+        "name": "Model"
+      },
+      "seed": {
+        "name": "Seed"
+      },
+      "private": {
+        "name": "Private"
+      }
+    }
+  },
+  "PollinationsTextToSpeech": {
+    "display_name": "Text To Speech Chat 🔊 (Pollinations)",
+    "inputs": {
+      "text": {
+        "name": "Text"
+      },
+      "voice": {
+        "name": "Voice"
+      },
+      "seed": {
+        "name": "Seed"
+      },
+      "private": {
+        "name": "Private"
+      }
+    }
+  },
+  "PollinationsImageFeed": {
+    "display_name": "Image Feed 🖼️ (Pollinations)",
+    "inputs": {
+      "count": {
+        "name": "Count"
+      },
+      "model": {
+        "name": "Model"
+      },
+      "prompt": {
+        "name": "Prompt"
+      },
+      "force_refresh": {
+        "name": "Force Refresh"
+      }
+    }
+  },
+    "PollinationsTextFeed": {
+    "display_name": "Text Feed 📝 (Pollinations)",
+    "inputs": {
+      "count": {
+        "name": "Count"
+      },
+      "model": {
+        "name": "Model"
+      },
+      "prompt": {
+        "name": "Prompt"
+      },
+      "force_refresh": {
+        "name": "Force Refresh"
+      }
+    }
+  }
+}

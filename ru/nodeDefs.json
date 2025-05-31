@@ -1,0 +1,108 @@
+{
+  "PollinationsImageGen": {
+    "display_name": "Изображение генератор 🖼️ (Pollinations)",
+    "inputs": {
+      "prompt": {
+        "name": "Подсказка"
+      },
+      "model": {
+        "name": "Модель"
+      },
+      "width": {
+        "name": "Ширина"
+      },
+      "height": {
+        "name": "Высота"
+      },
+      "batch_size": {
+        "name": "Размер партии"
+      },
+      "negative_prompt": {
+        "name": "Отрицательная подсказка"
+      },
+      "seed": {
+        "name": "Семя"
+      },
+      "enhance": {
+        "name": "Улучшить"
+      },
+      "nologo": {
+        "name": "Без логотипа"
+      },
+      "private": {
+        "name": "Частный"
+      },
+      "safe": {
+        "name": "Безопасный"
+      }
+    }
+  },
+  "PollinationsTextGen": {
+    "display_name": "Текст генератор 📝 (Pollinations)",
+    "inputs": {
+      "prompt": {
+        "name": "Подсказка"
+      },
+      "model": {
+        "name": "Модель"
+      },
+      "seed": {
+        "name": "Семя"
+      },
+      "private": {
+        "name": "Частный"
+      }
+    }
+  },  
+  "PollinationsTextToSpeech": {
+    "display_name": "Текст в речь 🔊 (Pollinations)",
+    "inputs": {
+      "text": {
+        "name": "Текст"
+      },
+      "voice": {
+        "name": "Голос"
+      },
+      "seed": {
+        "name": "Семя"
+      },
+      "private": {
+        "name": "Частный"
+      }
+    }
+  },
+  "PollinationsImageFeed": {
+    "display_name": "Изображение поток 🖼️ (Pollinations)",
+    "inputs": {
+      "count": {
+        "name": "Количество"
+      },
+      "model": {
+        "name": "Модель"
+      },
+      "prompt": {
+        "name": "Подсказка"
+      },
+      "force_refresh": {
+        "name": "Принудительное обновление"
+      }
+    }
+  },
+  "PollinationsTextFeed": {
+    "display_name": "Текст поток 📝 (Pollinations)",
+    "inputs": {
+      "count": {
+        "name": "Количество"
+      },
+      "model": {
+        "name": "Модель"
+      },
+      "prompt": {
+        "name": "Подсказка"
+      },
+      "force_refresh": {
+        "name": "Принудительное обновление"
+      }
+    }
+  }
+}

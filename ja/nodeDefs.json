@@ -1,0 +1,108 @@
+{
+  "PollinationsImageGen": {
+    "display_name": "画像生成 🖼️ (Pollinations)",
+    "inputs": {
+      "prompt": {
+        "name": "プロンプト"
+      },
+      "model": {
+        "name": "モデル"
+      },
+      "width": {
+        "name": "幅"
+      },
+      "height": {
+        "name": "高さ"
+      },
+      "batch_size": {
+        "name": "バッチサイズ"
+      },
+      "negative_prompt": {
+        "name": "ネガティブプロンプト"
+      },
+      "seed": {
+        "name": "シード"
+      },
+      "enhance": {
+        "name": "強化"
+      },
+      "nologo": {
+        "name": "ロゴなし"
+      },
+      "private": {
+        "name": "プライベート"
+      },
+      "safe": {
+        "name": "安全"
+      }
+    }
+  },
+  "PollinationsTextGen": {
+    "display_name": "テキスト生成 📝 (Pollinations)",
+    "inputs": {
+      "prompt": {
+        "name": "プロンプト"
+      },
+      "model": {
+        "name": "モデル"
+      },
+      "seed": {
+        "name": "シード"
+      },
+      "private": {
+        "name": "プライベート"
+      }
+    }
+  },  
+  "PollinationsTextToSpeech": {
+    "display_name": "テキスト音声変換 🔊 (Pollinations)",
+    "inputs": {
+      "text": {
+        "name": "テキスト"
+      },
+      "voice": {
+        "name": "声"
+      },
+      "seed": {
+        "name": "シード"
+      },
+      "private": {
+        "name": "プライベート"
+      }
+    }
+  },
+  "PollinationsImageFeed": {
+    "display_name": "画像フィード 🖼️ (Pollinations)",
+    "inputs": {
+      "count": {
+        "name": "カウント"
+      },
+      "model": {
+        "name": "モデル"
+      },
+      "prompt": {
+        "name": "プロンプト"
+      },
+      "force_refresh": {
+        "name": "強制更新"
+      }
+    }
+  },
+  "PollinationsTextFeed": {
+    "display_name": "テキストフィード 📝 (Pollinations)",
+    "inputs": {
+      "count": {
+        "name": "カウント"
+      },
+      "model": {
+        "name": "モデル"
+      },
+      "prompt": {
+        "name": "プロンプト"
+      },
+      "force_refresh": {
+        "name": "強制更新"
+      }
+    }
+  }
+}
