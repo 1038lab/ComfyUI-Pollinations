@@ -1,6 +1,6 @@
 {
   "PollinationsImageGen": {
-    "display_name": "Pollinations 图像生成 🖼️",
+    "display_name": "图像生成 🖼️ (Pollinations)",
     "inputs": {
       "prompt": {
         "name": "提示"
@@ -38,7 +38,7 @@
     }
   },
   "PollinationsTextGen": {
-    "display_name": "Pollinations 文本生成 📝",
+    "display_name": "文本生成 📝 (Pollinations)",
     "inputs": {
       "prompt": {
         "name": "提示"
@@ -54,8 +54,25 @@
       }
     }
   },
+  "PollinationsTextToSpeech": {
+    "display_name": "文本转语音 🔊 (Pollinations)",
+    "inputs": {
+      "text": {
+        "name": "文本"
+      },
+      "voice": {
+        "name": "声音"
+      },
+      "seed": {
+        "name": "种子"
+      },
+      "private": {
+        "name": "私有"
+      }
+    }
+  },    
   "PollinationsImageFeed": {
-    "display_name": "Pollinations 图像提要 🖼️",
+    "display_name": "图像提要 🖼️ (Pollinations)",
     "inputs": {
       "count": {
         "name": "数量"

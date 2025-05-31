@@ -1,6 +1,6 @@
 {
   "PollinationsImageGen": {
-    "display_name": "Pollinations 画像生成 🖼️",
+    "display_name": "画像生成 🖼️ (Pollinations)",
     "inputs": {
       "prompt": {
         "name": "プロンプト"
@@ -38,7 +38,7 @@
     }
   },
   "PollinationsTextGen": {
-    "display_name": "Pollinations テキスト生成 📝",
+    "display_name": "テキスト生成 📝 (Pollinations)",
     "inputs": {
       "prompt": {
         "name": "プロンプト"
@@ -53,9 +53,26 @@
         "name": "プライベート"
       }
     }
+  },  
+  "PollinationsTextToSpeech": {
+    "display_name": "テキスト音声変換 🔊 (Pollinations)",
+    "inputs": {
+      "text": {
+        "name": "テキスト"
+      },
+      "voice": {
+        "name": "声"
+      },
+      "seed": {
+        "name": "シード"
+      },
+      "private": {
+        "name": "プライベート"
+      }
+    }
   },
   "PollinationsImageFeed": {
-    "display_name": "Pollinations 画像フィード 🖼️",
+    "display_name": "画像フィード 🖼️ (Pollinations)",
     "inputs": {
       "count": {
         "name": "カウント"
@@ -72,7 +89,7 @@
     }
   },
   "PollinationsTextFeed": {
-    "display_name": "Pollinations テキストフィード 📝",
+    "display_name": "テキストフィード 📝 (Pollinations)",
     "inputs": {
       "count": {
         "name": "カウント"

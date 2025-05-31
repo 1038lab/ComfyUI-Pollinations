@@ -1,6 +1,6 @@
 {
   "PollinationsImageGen": {
-    "display_name": "Pollinations 이미지 생성 🖼️",
+    "display_name": "이미지 생성 🖼️ (Pollinations)",
     "inputs": {
       "prompt": {
         "name": "프롬프트"
@@ -38,7 +38,7 @@
     }
   },
   "PollinationsTextGen": {
-    "display_name": "Pollinations 텍스트 생성 📝",
+    "display_name": "텍스트 생성 📝 (Pollinations)",
     "inputs": {
       "prompt": {
         "name": "프롬프트"
@@ -53,9 +53,26 @@
         "name": "비공식"
       }
     }
+  },  
+  "PollinationsTextToSpeech": {
+    "display_name": "텍스트 음성 변환 🔊 (Pollinations)",
+    "inputs": {
+      "text": {
+        "name": "텍스트"
+      },
+      "voice": {
+        "name": "음성"
+      },
+      "seed": {
+        "name": "시드"
+      },
+      "private": {
+        "name": "비공식"
+      }
+    }
   },
   "PollinationsImageFeed": {
-    "display_name": "Pollinations 이미지 피드 🖼️",
+    "display_name": "이미지 피드 🖼️ (Pollinations)",
     "inputs": {
       "count": {
         "name": "수"
@@ -72,7 +89,7 @@
     }
   },
   "PollinationsTextFeed": {
-    "display_name": "Pollinations 텍스트 피드 📝",
+    "display_name": "텍스트 피드 📝 (Pollinations)",
     "inputs": {
       "count": {
         "name": "수"

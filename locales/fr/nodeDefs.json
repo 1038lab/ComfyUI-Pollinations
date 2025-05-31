@@ -1,6 +1,6 @@
 {
   "PollinationsImageGen": {
-    "display_name": "Générateur d'images Pollinations 🖼️",
+    "display_name": "Image Gen 🖼️ (Pollinations)",
     "inputs": {
       "prompt": {
         "name": "Invite"
@@ -38,7 +38,7 @@
     }
   },
   "PollinationsTextGen": {
-    "display_name": "Générateur de texte Pollinations 📝",
+    "display_name": "Text Gen 📝 (Pollinations)",
     "inputs": {
       "prompt": {
         "name": "Invite"
@@ -53,9 +53,26 @@
         "name": "Privé"
       }
     }
+  },  
+  "PollinationsTextToSpeech": {
+    "display_name": "Text To Speech Chat 🔊 (Pollinations)",
+    "inputs": {
+      "text": {
+        "name": "Texte"
+    },
+      "voice": {
+        "name": "Voix"
+      },
+      "seed": {
+        "name": "Graine"
+      },
+      "private": {
+        "name": "Privé"
+      }
+    }
   },
   "PollinationsImageFeed": {
-    "display_name": "Fil d'images Pollinations 🖼️",
+    "display_name": "Image Feed 🖼️ (Pollinations)",
     "inputs": {
       "count": {
         "name": "Nombre"
@@ -72,7 +89,7 @@
     }
   },
   "PollinationsTextFeed": {
-    "display_name": "Fil de texte Pollinations 📝",
+    "display_name": "Text Feed 📝 (Pollinations)",
     "inputs": {
       "count": {
         "name": "Nombre"

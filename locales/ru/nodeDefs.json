@@ -1,6 +1,6 @@
 {
   "PollinationsImageGen": {
-    "display_name": "Генератор изображений Pollinations 🖼️",
+    "display_name": "Изображение генератор 🖼️ (Pollinations)",
     "inputs": {
       "prompt": {
         "name": "Подсказка"
@@ -38,7 +38,7 @@
     }
   },
   "PollinationsTextGen": {
-    "display_name": "Генератор текста Pollinations 📝",
+    "display_name": "Текст генератор 📝 (Pollinations)",
     "inputs": {
       "prompt": {
         "name": "Подсказка"
@@ -53,9 +53,26 @@
         "name": "Частный"
       }
     }
+  },  
+  "PollinationsTextToSpeech": {
+    "display_name": "Текст в речь 🔊 (Pollinations)",
+    "inputs": {
+      "text": {
+        "name": "Текст"
+      },
+      "voice": {
+        "name": "Голос"
+      },
+      "seed": {
+        "name": "Семя"
+      },
+      "private": {
+        "name": "Частный"
+      }
+    }
   },
   "PollinationsImageFeed": {
-    "display_name": "Поток изображений Pollinations 🖼️",
+    "display_name": "Изображение поток 🖼️ (Pollinations)",
     "inputs": {
       "count": {
         "name": "Количество"
@@ -72,7 +89,7 @@
     }
   },
   "PollinationsTextFeed": {
-    "display_name": "Поток текста Pollinations 📝",
+    "display_name": "Текст поток 📝 (Pollinations)",
     "inputs": {
       "count": {
         "name": "Количество"
