@@ -1,6 +1,6 @@
 ## Version History
 
-### V1.2.0 (2025/05-/0)
+### V1.2.0 (2025/05/30)
 - Added Text to Speech feature using Pollinations API
 - Support for multiple voice options: nova, alloy, echo, fable, onyx, shimmer
 - Audio output as file path for integration with other audio nodes
