@@ -5,6 +5,7 @@
 ComfyUI-Pollinations is a custom node for ComfyUI that utilizes the Pollinations API to generate images and text based on user prompts. This library provides two main functionalities: image generation and text generation, allowing users to create visual and textual content easily.
 
 ## Update
+
 - V1.2.0 (2025-05-31): Add Text to Speech feature using Pollinations API ( [update.md](update.md#v110-20250305) )
 
 ![v1 2 0 text to speech chat](<example_workflows/text to speech chat.png>)
@@ -14,26 +15,51 @@ ComfyUI-Pollinations is a custom node for ComfyUI that utilizes the Pollinations
 ![v1 1 0](https://github.com/user-attachments/assets/c2391cc6-3284-4d14-aa91-7bb0145028db)
 (This the `i18n` Demo with `Chinese` UI)
 
-## Nodes Overview
+##Support Model List
 
-### ![ComfyUI-pollinations](https://github.com/user-attachments/assets/017f69c4-c3e6-4243-8de9-23053b4b0ffd)
+#### Image Generation Model
 
+|-------------------------------|
+| flux                          |
+| turbo                         |
 
-Support Model List
+| Text Generation Models       | Text Generation Models       | Text Generation Models       | Text Generation Models       |
+|-------------------------------|-------------------------------|-------------------------------|-------------------------------|
+| openai                        | openai-large                  | openai-reasoning              | qwen-coder                   |
+| llama                         | mistral                       | unity                         | midijourney                   |
+| rtist                         | searchgpt                     | evil                          | deepseek                      |
+| claude-hybridspace            | deepseek-r1                   | deepseek-reasoner             | llamalight                    |
+| llamaguard                    | gemini                        | gemini-thinking               | hormoz                        |
+| hypnosis-tracy                | sur                           | sur-mistral                   | llama-scaleway                |
 
-  | Image Generation Models       |
-  |-------------------------------|
-  | flux                          |
-  | turbo                         |
+#### Text Generation Models
 
-  | Text Generation Models       | Text Generation Models       | Text Generation Models       | Text Generation Models       |
-  |-------------------------------|-------------------------------|-------------------------------|-------------------------------|
-  | openai                        | openai-large                  | openai-reasoning              | qwen-coder                   |
-  | llama                         | mistral                       | unity                         | midijourney                   |
-  | rtist                         | searchgpt                     | evil                          | deepseek                      |
-  | claude-hybridspace            | deepseek-r1                   | deepseek-reasoner             | llamalight                    |
-  | llamaguard                    | gemini                        | gemini-thinking               | hormoz                        |
-  | hypnosis-tracy                | sur                           | sur-mistral                   | llama-scaleway                |
+| Name                   | Type    | Censored | Description                                 | Base Model | Vision | Reasoning | Provider     |
+|------------------------|--------|----------|---------------------------------------------|------------|--------|-----------|-------------|
+| openai                | chat   | Yes      | OpenAI GPT-4o-mini                         | Yes        | Yes    | No        |             |
+| openai-large          | chat   | Yes      | OpenAI GPT-4o                              | Yes        | Yes    | No        |             |
+| openai-reasoning      | chat   | Yes      | OpenAI o1-mini                             | Yes        | No     | Yes       |             |
+| qwen-coder           | chat   | Yes      | Qwen 2.5 Coder 32B                         | Yes        | No     | No        |             |
+| llama                 | chat   | No       | Llama 3.3 70B                              | Yes        | No     | No        |             |
+| mistral              | chat   | No       | Mistral Nemo                               | Yes        | No     | No        |             |
+| unity                | chat   | No       | Unity with Mistral Large by Unity AI Lab   | No         | No     | No        |             |
+| midijourney          | chat   | Yes      | Midijourney musical transformer            | No         | No     | No        |             |
+| rtist                | chat   | Yes      | Rtist image generator by @bqrio            | No         | No     | No        |             |
+| searchgpt           | chat   | Yes      | SearchGPT with realtime news and web search | No         | No     | No        |             |
+| evil                 | chat   | No       | Evil Mode - Experimental                   | No         | No     | No        |             |
+| deepseek            | chat   | Yes      | DeepSeek-V3                                | Yes        | No     | No        |             |
+| claude-hybridspace  | chat   | Yes      | Claude Hybridspace                         | Yes        | No     | No        |             |
+| deepseek-r1         | chat   | Yes      | DeepSeek-R1 Distill Qwen 32B               | Yes        | No     | Yes       | cloudflare  |
+| deepseek-reasoner   | chat   | Yes      | DeepSeek R1 - Full                         | Yes        | No     | Yes       | deepseek    |
+| llamalight          | chat   | No       | Llama 3.1 8B Instruct                      | Yes        | No     | No        |             |
+| llamaguard          | safety | No       | Llamaguard 7B AWQ                          | No         | No     | No        | cloudflare  |
+| gemini              | chat   | Yes      | Gemini 2.0 Flash                           | Yes        | No     | No        | google      |
+| gemini-thinking     | chat   | Yes      | Gemini 2.0 Flash Thinking                  | Yes        | No     | No        | google      |
+| hormoz              | chat   | No       | Hormoz 8b by Muhammadreza Haghiri          | No         | No     | No        | modal.com   |
+| hypnosis-tracy      | chat   | No       | Hypnosis Tracy - Your Self-Help AI         | No         | No     | No        | modal.com   |
+| sur                 | chat   | Yes      | Sur AI Assistant                           | No         | No     | No        |             |
+| sur-mistral        | chat   | Yes      | Sur AI Assistant (Mistral)                 | No         | No     | No        |             |
+| llama-scaleway      | chat   | No       | Llama (Scaleway)                           | Yes        | No     | No        |             |
 
 ### 1. PollinationsImageGen
 
@@ -59,6 +85,27 @@ Support Model List
   - `model`: The model to use for text generation (e.g., "openai").
   - `seed`: Random seed for generation.
   - `private`: Whether the generation is private.
+
+### 3. PollinationsTextToSpeech
+
+- **Function**: Converts text to speech audio using OpenAI's audio models through Pollinations API.
+- **Input Parameters**:
+  - `text`: The text to convert to speech.
+  - `voice`: The voice to use for speech generation (e.g., "nova", "alloy", "echo", "fable", "onyx", "shimmer").
+  - `seed`: Random seed for generation.
+  - `private`: Whether the generation is private.
+- **Output**:
+  - `audio`: Audio file path that can be used with audio playback nodes.
+
+### Image Feed and Text Feed Model
+
+#### Image Feed Model
+
+#### Image Feed Model
+The Image Feed Model is designed to retrieve and generate images based on user-defined parameters. It allows users to specify the number of images to fetch, the model to use for generation, and optional filters such as prompts and refresh settings. This model is particularly useful for applications that require dynamic image generation based on varying inputs.
+
+#### Text Feed Model
+The Text Feed Model is focused on generating text responses based on user prompts. It supports various text generation models and allows users to specify the number of responses to retrieve, along with optional filters for model selection and prompt matching. This model is ideal for applications that need to generate conversational or informative text based on user queries.
 
 ## Installation
 
@@ -100,7 +147,7 @@ We welcome contributions to Pollinations! Please fork the repository and submit 
 
 ## License
 
-This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
