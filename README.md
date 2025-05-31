@@ -5,11 +5,11 @@
 ComfyUI-Pollinations is a custom node for ComfyUI that utilizes the Pollinations API to generate images and text based on user prompts. This library provides two main functionalities: image generation and text generation, allowing users to create visual and textual content easily.
 
 ## Update
-- V1.2.0 (2025-05-31): Add Text to Speech feature using Pollinations API
+- V1.2.0 (2025-05-31): Add Text to Speech feature using Pollinations API ( [update.md](update.md#v110-20250305) )
 
 ![v1 2 0 text to speech chat](<example_workflows/text to speech chat.png>)
 
-- V1.1.0 (2025-03-21): Integrated internationalization (`i18n`) support for multiple languages.
+- V1.1.0 (2025-03-21): Integrated internationalization (`i18n`) support for multiple languages. ( [update.md](update.md#v110-20250305) )
 
 ![v1 1 0](https://github.com/user-attachments/assets/c2391cc6-3284-4d14-aa91-7bb0145028db)
 (This the `i18n` Demo with `Chinese` UI)
