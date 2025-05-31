@@ -1,13 +1,13 @@
 ## Version History
 
-### V1.2.0 (2025-05-30)
+### V1.2.0 (2025/05-/0)
 - Added Text to Speech feature using Pollinations API
 - Support for multiple voice options: nova, alloy, echo, fable, onyx, shimmer
 - Audio output as file path for integration with other audio nodes
 
 ![v1 2 0 text to speech chat](<example_workflows/text to speech chat.png>)
 
-### V1.1.0 (2025-03-05)
+### V1.1.0 (2025/03/05)
 - Added Image Feed and Text Feed Custom Nodes
 - Real-time feed of Pollinations AI generated content
 - Filter capabilities by model and prompt content
@@ -15,7 +15,7 @@
 
 ![v1 1 0](https://github.com/user-attachments/assets/c2391cc6-3284-4d14-aa91-7bb0145028db)
 
-### V1.0.0 (2025-02-15)
+### V1.0.0 (2025/02/15)
 - Initial release
 - Support for image generation with various models
 - Text generation capabilities
