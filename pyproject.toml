@@ -1,16 +1,12 @@
 [project]
 name = "comfyui-Pollinations"
-description = "ComfyUI integration for Pollinations API - Generate images and text based on user prompts"
-version = "1.2.1"
+description = "ComfyUI integration for Pollinations API - Generate images and text with free and premium models (gptimage, kontext)"
+version = "1.3.0"
 license = {file = "LICENSE"}
 
 dependencies = [
-    "requests>=2.25.1,<3.0.0",
-    "Pillow>=8.0.0,<9.0.0",
-    "numpy>=1.19.5,<2.0.0",
-    "torch>=1.7.0,<2.0.0",
-    "pydub>=0.25.1",
-    "ffmpeg-python>=0.2.0" 
+   "requests>=2.25.1",
+    "pydub>=0.25.1"
 ]
     
 [project.urls]
