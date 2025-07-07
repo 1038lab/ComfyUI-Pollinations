@@ -13,92 +13,47 @@ from pydub import AudioSegment
 import io
 import folder_paths
 
-# Updated based on https://image.pollinations.ai/models
 DEFAULT_IMAGE_MODELS = ["flux", "turbo"]
-# Top models from https://text.pollinations.ai/models (first few models)
-DEFAULT_TEXT_MODELS = ["openai", "openai-fast", "openai-large", "qwen-coder", "llama", "mistral"]
 
-MODELS_CACHE = {"models": [], "last_update": 0}
-TEXT_MODELS_CACHE = {"model_info": [], "last_update": 0}
+TEXT_GENERATION_MODELS = [
+    "openai",           # OpenAI GPT-4o Mini
+    "mistral",          # Mistral Small 3.1 24B
+    "llamascout",       # Llama 4 Scout 17B
+    "openai-fast",      # OpenAI GPT-4.1 Nano
+    "openai-reasoning", # OpenAI O3
+    "phi",              # Phi-4 Mini Instruct
+    "qwen-coder",       # Qwen 2.5 Coder 32B
+    "bidara",           # NASA BIDARA
+    "midijourney"       # MIDIjourney
+]
 
-def get_available_models():
-    """Get available image models from API with caching"""
-    current_time = time.time()
-    
-    if current_time - MODELS_CACHE["last_update"] > 3600 or not MODELS_CACHE["models"]:
-        try:
-            response = requests.get("https://image.pollinations.ai/models", timeout=10)
-            if response.status_code == 200:
-                models_data = response.json()
-                if models_data and len(models_data) > 0:
-                    MODELS_CACHE["models"] = models_data
-                else:
-                    MODELS_CACHE["models"] = DEFAULT_IMAGE_MODELS
-                MODELS_CACHE["last_update"] = current_time
-            else:
-                MODELS_CACHE["models"] = DEFAULT_IMAGE_MODELS
-        except Exception as e:
-            print(f"Error fetching image models: {e}")
-            MODELS_CACHE["models"] = DEFAULT_IMAGE_MODELS
-    
-    return MODELS_CACHE["models"]
+SEARCH_MODELS = [
+    "searchgpt",        # OpenAI GPT-4o Mini Search Preview
+    "elixposearch"      # Elixpo Search
+]
 
-def get_text_models():
-    """Get available text models from API with caching"""
-    current_time = time.time()
-    
-    if current_time - TEXT_MODELS_CACHE["last_update"] > 3600 or not TEXT_MODELS_CACHE["model_info"]:
-        try:
-            response = requests.get("https://text.pollinations.ai/models", timeout=10)
-            if response.status_code == 200:
-                models_data = response.json()
-                if models_data and len(models_data) > 0:
-                    # Store model info as {name, description} pairs
-                    model_info = []
-                    for model in models_data:
-                        model_info.append({
-                            'name': model['name'],
-                            'description': model.get('description', f"Default {model['name']} model")
-                        })
-                    TEXT_MODELS_CACHE["model_info"] = model_info
-                else:
-                    TEXT_MODELS_CACHE["model_info"] = [
-                        {'name': name, 'description': f"Default {name} model"}
-                        for name in DEFAULT_TEXT_MODELS
-                    ]
-                TEXT_MODELS_CACHE["last_update"] = current_time
-            else:
-                TEXT_MODELS_CACHE["model_info"] = [
-                    {'name': name, 'description': f"Default {name} model"}
-                    for name in DEFAULT_TEXT_MODELS
-                ]
-        except Exception as e:
-            print(f"Error fetching text models: {e}")
-            TEXT_MODELS_CACHE["model_info"] = [
-                {'name': name, 'description': f"Default {name} model"}
-                for name in DEFAULT_TEXT_MODELS
-            ]
-    
-    # Return only descriptions for display
-    return [model['description'] for model in TEXT_MODELS_CACHE["model_info"]]
+TEXT_TO_SPEECH_MODELS = [
+    "openai-audio",     # OpenAI GPT-4o Mini Audio Preview
+    "hypnosis-tracy"    # Hypnosis Tracy
+]
 
+# Updated voice list from API
+AVAILABLE_VOICES = ["alloy", "echo", "fable", "onyx", "nova", "shimmer", "coral", "verse", "ballad", "ash", "sage", "amuch", "dan"]
 class PollinationsImageGen:
-    
+
     @classmethod
     def INPUT_TYPES(cls):
-        models = get_available_models()
-        default_model = "flux" if "flux" in models else models[0] if models else "flux"
-        
+        # Use fixed model list
+
         return {
             "required": {
                 "prompt": ("STRING", {"multiline": True, "placeholder": "Enter a description of the image you want..."}),
-                "model": (models, {"default": default_model}),
+                "model": (DEFAULT_IMAGE_MODELS, {"default": "flux"}),
                 "width": ("INT", {"default": 1024, "min": 512, "max": 4096, "step": 8}),
                 "height": ("INT", {"default": 1024, "min": 512, "max": 4096, "step": 8}),
                 "batch_size": ("INT", {"default": 1, "min": 1, "max": 4, "step": 1}),
             },
             "optional": {
-                "negative_prompt": ("STRING", {"multiline": True, "default": ""}),
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
                 "enhance": ("BOOLEAN", {"default": True}),
                 "nologo": ("BOOLEAN", {"default": True}),
@@ -113,41 +68,38 @@ class PollinationsImageGen:
     FUNCTION = "generate"
     CATEGORY = "🧪AILab/🌸Pollinations"
     
-    def generate(self, prompt, model, width, height, batch_size=1, negative_prompt="", seed=0, 
+    def generate(self, prompt, model, width, height, batch_size=1, seed=0,
                  enhance=True, nologo=True, private=True, safe=False):
         """Generate multiple images"""
+        # Use fixed model list
+
         images = []
         urls = []
         prompts = []
-        
+
         for i in range(batch_size):
             current_seed = seed + i if seed != 0 else 0
             try:
                 image, url, final_prompt = self._generate_single(
-                    prompt, model, width, height, negative_prompt, 
+                    prompt, model, width, height,
                     current_seed, enhance, nologo, private, safe
                 )
                 images.append(image)
                 urls.append(url)
                 prompts.append(final_prompt)
             except Exception as e:
-                print(f"Error generating image {i+1}: {e}")
                 images.append(torch.zeros(1, 512, 512, 3))
                 urls.append(f"Error: {str(e)}")
                 prompts.append(prompt)
-        
+
         return (images, urls, prompts)
     
-    def _generate_single(self, prompt, model, width, height, negative_prompt="", seed=0, 
+    def _generate_single(self, prompt, model, width, height, seed=0,
                         enhance=True, nologo=True, private=True, safe=False):
         """Generate a single image"""
         try:
             base_url = "https://image.pollinations.ai/prompt/"
-            full_prompt = prompt
-            if negative_prompt:
-                full_prompt = f"{prompt} ### {negative_prompt}"
-                
-            encoded_prompt = quote(full_prompt)
+            encoded_prompt = quote(prompt)
             params = {
                 "model": model,
                 "width": width,
@@ -167,23 +119,21 @@ class PollinationsImageGen:
             
             param_str = "&".join([f"{k}={v}" for k, v in params.items()])
             url = f"{base_url}{encoded_prompt}?{param_str}"
-            
-            print(f"Generating image, URL: {url}")
+
             response = requests.get(url, stream=True)
             response.raise_for_status()
             
-            final_prompt = full_prompt
-            
+            final_prompt = prompt
+
             try:
                 image_url = response.url
                 if "/prompt/" in image_url:
                     encoded_part = image_url.split("/prompt/")[1].split("?")[0]
                     extracted_prompt = unquote(encoded_part)
-                    if extracted_prompt != full_prompt and enhance:
+                    if extracted_prompt != prompt and enhance:
                         final_prompt = extracted_prompt
-                        print(f"Enhanced prompt: {final_prompt}")
-            except Exception as ee:
-                print(f"Error extracting enhanced prompt: {ee}")
+            except Exception:
+                pass
             
             temp_dir = tempfile.gettempdir()
             filename = f"pollinations_{int(time.time())}.png"
@@ -200,7 +150,6 @@ class PollinationsImageGen:
             
         except Exception as e:
             error_msg = f"Pollinations API error: {str(e)}"
-            print(error_msg)
             empty_image = torch.zeros(1, 512, 512, 3)
             return (empty_image, error_msg, prompt)
 
@@ -208,16 +157,15 @@ class PollinationsImageGen:
     def IS_CHANGED(cls, **kwargs):
         return time.time()
 
+
 class PollinationsTextGen:
     @classmethod
     def INPUT_TYPES(cls):
-        text_models = get_text_models()
-        default_description = next((model['description'] for model in TEXT_MODELS_CACHE.get("model_info", []) 
-                                 if model['name'] == "openai"), text_models[0] if text_models else "Default openai model")
+        # Use fixed model list
         return {
             "required": {
                 "prompt": ("STRING", {"multiline": True, "placeholder": "Enter your text prompt..."}),
-                "model": (text_models, {"default": default_description}),
+                "model": (TEXT_GENERATION_MODELS, {"default": "openai"}),
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
             },
             "optional": {
@@ -232,15 +180,8 @@ class PollinationsTextGen:
     
     def generate_text(self, prompt, model, seed, private=True):
         try:
-            # Find the model name that matches this description
-            model_name = None
-            for model_info in TEXT_MODELS_CACHE["model_info"]:
-                if model_info['description'] == model:
-                    model_name = model_info['name']
-                    break
-                
-            if not model_name:
-                model_name = "openai"  # fallback
+            # Use model directly from fixed list
+            model_name = model if model in TEXT_GENERATION_MODELS else "openai"
             
             params = {
                 "model": model_name,
@@ -249,8 +190,7 @@ class PollinationsTextGen:
             }
             param_str = "&".join([f"{k}={v}" for k, v in params.items()])
             url = f"https://text.pollinations.ai/{quote(prompt)}?{param_str}"
-            
-            print(f"Generating Text, URL: {url}")
+
             response = requests.get(url)
             if response.status_code == 200:
                 return (response.text,)
@@ -259,6 +199,48 @@ class PollinationsTextGen:
         except Exception as e:
             return (f"Text generation failed: {str(e)}",)
 
+# Adding Search node
+class PollinationsSearch:
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "query": ("STRING", {"multiline": True, "placeholder": "Enter your search query..."}),
+                "model": (SEARCH_MODELS, {"default": "searchgpt"}),
+            },
+            "optional": {
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
+                "private": ("BOOLEAN", {"default": True, "tooltip": "Keep the search private"})
+            }
+        }
+
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("search_results",)
+    FUNCTION = "search"
+    CATEGORY = "🧪AILab/🌸Pollinations"
+
+    def search(self, query, model, seed=0, private=True):
+        try:
+            params = {
+                "model": model,
+                "seed": seed,
+                "private": str(private).lower()
+            }
+            param_str = "&".join([f"{k}={v}" for k, v in params.items()])
+            url = f"https://text.pollinations.ai/{quote(query)}?{param_str}"
+
+            response = requests.get(url, timeout=30)
+            if response.status_code == 200:
+                return (response.text,)
+            else:
+                return (f"Search error: {response.status_code}",)
+        except Exception as e:
+            return (f"Search failed: {str(e)}",)
+
+    @classmethod
+    def IS_CHANGED(cls, **kwargs):
+        return float("NaN")
+
 # Adding Text-to-Speech node
 class PollinationsTextToSpeech:
     @classmethod
@@ -266,11 +248,11 @@ class PollinationsTextToSpeech:
         return {
             "required": {
                 "text": ("STRING", {"multiline": True, "placeholder": "Enter text to convert to speech..."}),
-                "voice": (["nova", "alloy", "echo", "fable", "onyx", "shimmer"], {"default": "nova"}),
-                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
+                "model": (TEXT_TO_SPEECH_MODELS, {"default": "openai-audio"}),
+                "voice": (AVAILABLE_VOICES, {"default": "nova"}),
             },
             "optional": {
-                "private": ("BOOLEAN", {"default": True, "tooltip": "Keep the generation private"})
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "tooltip": "Random seed (requires authentication)"})
             }
         }
     
@@ -279,20 +261,25 @@ class PollinationsTextToSpeech:
     FUNCTION = "generate_speech"
     CATEGORY = "🧪AILab/🌸Pollinations"
     
-    def generate_speech(self, text, voice, seed, private=True):
+    def generate_speech(self, text, model, voice, seed=None):
         try:
+            # Use selected model, fallback to openai-audio if not in list
+            model_name = model if model in TEXT_TO_SPEECH_MODELS else "openai-audio"
+
             params = {
-                "model": "openai-audio",
-                "voice": voice,
-                "seed": seed,
-                "private": str(private).lower()
+                "model": model_name,
+                "voice": voice
             }
+
+            # Only add seed if provided and not 0 (requires authentication)
+            if seed is not None and seed != 0:
+                params["seed"] = seed
+
             param_str = "&".join([f"{k}={v}" for k, v in params.items()])
             url = f"https://text.pollinations.ai/{quote(text)}?{param_str}"
-            
-            print(f"Generating Speech, URL: {url}")
+
             response = requests.get(url, stream=True)
-            
+
             if response.status_code == 200:
                 # Get ComfyUI's temp directory
                 temp_dir = os.path.join(folder_paths.get_output_directory(), "pollinations_temp")
@@ -332,12 +319,16 @@ class PollinationsTextToSpeech:
                 }
                 
                 return (audio_dict, mp3_path)
+            elif response.status_code == 402:
+                # Payment required - authentication needed (usually when using seed)
+                error_msg = "Text-to-Speech with seed parameter requires authentication. Remove seed or visit https://auth.pollinations.ai to get authentication."
+                print(f"[PollinationsTextToSpeech] {error_msg}")
+                return ({"waveform": torch.zeros(1, 1, 16000), "sample_rate": 16000}, "")
             else:
-                print(f"Error generating speech: {response.status_code}")
+                print(f"[PollinationsTextToSpeech] Error: HTTP {response.status_code} - {response.text[:200]}")
                 return ({"waveform": torch.zeros(1, 1, 16000), "sample_rate": 16000}, "")
         except Exception as e:
-            error_msg = f"Speech generation failed: {str(e)}"
-            print(error_msg)
+            print(f"[PollinationsTextToSpeech] Exception: {str(e)}")
             return ({"waveform": torch.zeros(1, 1, 16000), "sample_rate": 16000}, "")
 
     @classmethod
@@ -347,11 +338,13 @@ class PollinationsTextToSpeech:
 NODE_CLASS_MAPPINGS = {
     "PollinationsImageGen": PollinationsImageGen,
     "PollinationsTextGen": PollinationsTextGen,
+    "PollinationsSearch": PollinationsSearch,
     "PollinationsTextToSpeech": PollinationsTextToSpeech,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "PollinationsImageGen": "Image Gen 🖼️ (Pollinations)",
     "PollinationsTextGen": "Text Gen 📝 (Pollinations)",
+    "PollinationsSearch": "Search 🔍 (Pollinations)",
     "PollinationsTextToSpeech": "Text To Speech Chat 🔊 (Pollinations)",
-} 
+}
