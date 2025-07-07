@@ -7,6 +7,8 @@ ComfyUI-Pollinations is a custom node for ComfyUI that utilizes the Pollinations
 ## Update
 - **V1.3.0 (2025-07-06)**: 🔑 **Premium Models Support** - Added authentication-required models (gptimage, kontext) with separate premium nodes. Fixed text-to-speech to work without authentication. Added premium TTS node. See [PREMIUM_MODELS.md](PREMIUM_MODELS.md) for setup guide. ( [update.md](update.md#v130-20250706) )
 
+![v1 3 0](https://github.com/user-attachments/assets/365fea76-7d35-4595-b4a1-de72416476b4)
+
 - V1.2.1 (2025-06-19): requirments.txt update
 
 - V1.2.0 (2025-05-31): Add Text to Speech feature using Pollinations API ( [update.md](update.md#v110-20250305) )
