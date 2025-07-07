@@ -5,7 +5,7 @@
 ComfyUI-Pollinations is a custom node for ComfyUI that utilizes the Pollinations API to generate images and text based on user prompts. This library provides two main functionalities: image generation and text generation, allowing users to create visual and textual content easily.
 
 ## Update
-- **V1.3.0 (2025-07-06)**: 🔑 **Premium Models Support** - Added authentication-required models (gptimage, kontext) with separate premium nodes. Fixed text-to-speech to work without authentication. Added premium TTS node. See [PREMIUM_MODELS.md](PREMIUM_MODELS.md) for setup guide. ( [update.md](update.md#v130-20250706) )
+- **V1.3.0 (2025-07-06)**: 🔑 **Premium Models Support** - Added authentication-required models (gptimage, kontext) with separate premium nodes. **⚠️ BREAKING CHANGE**: Removed basic text-to-speech node due to severe API limitations (only ~10 words supported). Use Premium Text-to-Speech node instead. See [PREMIUM_MODELS.md](PREMIUM_MODELS.md) for setup guide. ( [update.md](update.md#v130-20250706) )
 
 ![v1 3 0](https://github.com/user-attachments/assets/365fea76-7d35-4595-b4a1-de72416476b4)
 
@@ -100,18 +100,6 @@ ComfyUI-Pollinations is a custom node for ComfyUI that utilizes the Pollinations
   - `model`: The model to use for text generation (e.g., "openai").
   - `seed`: Random seed for generation.
   - `private`: Whether the generation is private.
-
-### 3. PollinationsTextToSpeech
-
-- **Function**: Converts text to speech audio using OpenAI's audio models through Pollinations API.
-- **Input Parameters**:
-  - `text`: The text to convert to speech.
-  - `model`: Text-to-speech model ("openai-audio" or "hypnosis-tracy")
-  - `voice`: The voice to use for speech generation (e.g., "nova", "alloy", "echo", "fable", "onyx", "shimmer", "coral", "verse", "ballad", "ash", "sage", "amuch", "dan").
-  - `seed` (optional): Random seed for generation (requires authentication).
-- **Output**:
-  - `audio`: Audio file path that can be used with audio playback nodes.
-- **Note**: Works without authentication by default. Seed parameter requires authentication.
 
 ## 💎 Premium Nodes (Authentication Required)
 
