@@ -1,11 +1,5 @@
-# Required packages for ComfyUI-Pollinations
+# ComfyUI-Pollinations Dependencies
+# Minimal requirements - ComfyUI provides torch, numpy, etc.
 
-requests>=2.25.1,<3.0.0
-numpy>=1.19.5,<2.0.0
-torch>=1.7.0
-Pillow>=8.0.0,<9.0.0
-urllib3
-
-# Audio processing dependencies
+requests>=2.25.1
 pydub>=0.25.1
-ffmpeg-python>=0.2.0 
