@@ -12,21 +12,22 @@
 - **⚡ Improved Performance**: Removed authentication checks from free model workflows
 - **🛡️ Better Error Handling**: Clear authentication error messages and tier upgrade guidance
 - **🔍 Search Node**: Added web search functionality with `elixposearch` model
-- **🎤 Text-to-Speech Fix**: Fixed PollinationsTextToSpeech node to work without authentication
-- **🔊 Premium TTS**: Added premium text-to-speech node with full feature access
+- **🚫 Removed Basic TTS**: Removed PollinationsTextToSpeech node due to severe API limitations
+- **🔊 Premium TTS Only**: Text-to-speech now only available through premium node with API authentication
 
 **New Premium Nodes** (requires API token from https://auth.pollinations.ai):
 - `Premium Image Gen 🔑`: Advanced image generation with gptimage/kontext
 - `Premium Image Edit 🔑`: Professional image-to-image editing capabilities
-- `Premium Text-to-Speech 🔑`: Full TTS features with seed control and private mode
+- `Premium Text-to-Speech 🔑`: Full TTS features with unrestricted text, seed control and private mode
 
 **New Node**:
 - `Search 🔍`: Web search functionality
 
-**Text-to-Speech Updates**:
-- **Basic TTS**: Now works without authentication (model + voice only)
-- **Advanced TTS**: Seed parameter requires authentication
-- **Premium TTS**: Full feature access with API token
+**⚠️ BREAKING CHANGE - Text-to-Speech**:
+- **Removed**: Basic PollinationsTextToSpeech node (was too limited to be useful)
+- **Reason**: Free tier only supported ~10 predefined words ("hi", "hello", "yes", "good", "cat", "dog", "test")
+- **Solution**: Use `Premium Text-to-Speech 🔑` node with API token for full functionality
+- **Migration**: Get API token from https://auth.pollinations.ai and use premium node instead
 
 **Free Models** (no authentication required):
 - `flux`: High-quality image generation
