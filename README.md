@@ -5,7 +5,7 @@
 ComfyUI-Pollinations is a custom node for ComfyUI that utilizes the Pollinations API to generate images and text based on user prompts. This library provides two main functionalities: image generation and text generation, allowing users to create visual and textual content easily.
 
 ## Update
-- **V1.3.0 (2025-07-06)**: 🔑 **Premium Models Support** - Added authentication-required models (gptimage, kontext) with separate premium nodes. **⚠️ BREAKING CHANGE**: Removed basic text-to-speech node due to severe API limitations (only ~10 words supported). Use Premium Text-to-Speech node instead. See [PREMIUM_MODELS.md](PREMIUM_MODELS.md) for setup guide. ( [update.md](update.md#v130-20250706) )
+- **V1.3.0 (2025-07-06)**: 🔑 **Premium Models Support** - Added authentication-required models (gptimage, kontext) with separate premium nodes. **⚠️ BREAKING CHANGE**: Removed basic text-to-speech node due to severe API limitations. Use Premium Text-to-Speech node instead. See [PREMIUM_MODELS.md](PREMIUM_MODELS.md) for setup guide. ( [update.md](update.md#v130-20250706) )
 
 ![v1 3 0](https://github.com/user-attachments/assets/365fea76-7d35-4595-b4a1-de72416476b4)
 
