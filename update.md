@@ -1,6 +1,9 @@
 ## Version History
 
 ### V1.3.0 (2025/07/06)
+
+![v1 3 0](https://github.com/user-attachments/assets/365fea76-7d35-4595-b4a1-de72416476b4)
+
 - **🔑 Premium Models Support**: Added authentication-required models (gptimage, kontext)
 - **📁 Separated Premium Nodes**: Created `pollinations_premium.py` for tier-based models
 - **🎨 Advanced Image Editing**: Premium image-to-image editing with kontext model
