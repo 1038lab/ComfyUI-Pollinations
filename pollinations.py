@@ -32,13 +32,7 @@ SEARCH_MODELS = [
     "elixposearch"      # Elixpo Search
 ]
 
-TEXT_TO_SPEECH_MODELS = [
-    "openai-audio",     # OpenAI GPT-4o Mini Audio Preview
-    "hypnosis-tracy"    # Hypnosis Tracy
-]
 
-# Updated voice list from API
-AVAILABLE_VOICES = ["alloy", "echo", "fable", "onyx", "nova", "shimmer", "coral", "verse", "ballad", "ash", "sage", "amuch", "dan"]
 class PollinationsImageGen:
 
     @classmethod
@@ -241,110 +235,16 @@ class PollinationsSearch:
     def IS_CHANGED(cls, **kwargs):
         return float("NaN")
 
-# Adding Text-to-Speech node
-class PollinationsTextToSpeech:
-    @classmethod
-    def INPUT_TYPES(cls):
-        return {
-            "required": {
-                "text": ("STRING", {"multiline": True, "placeholder": "Enter text to convert to speech..."}),
-                "model": (TEXT_TO_SPEECH_MODELS, {"default": "openai-audio"}),
-                "voice": (AVAILABLE_VOICES, {"default": "nova"}),
-            },
-            "optional": {
-                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "tooltip": "Random seed (requires authentication)"})
-            }
-        }
-    
-    RETURN_TYPES = ("AUDIO", "STRING",)
-    RETURN_NAMES = ("audio", "audio_path",)
-    FUNCTION = "generate_speech"
-    CATEGORY = "🧪AILab/🌸Pollinations"
-    
-    def generate_speech(self, text, model, voice, seed=None):
-        try:
-            # Use selected model, fallback to openai-audio if not in list
-            model_name = model if model in TEXT_TO_SPEECH_MODELS else "openai-audio"
 
-            params = {
-                "model": model_name,
-                "voice": voice
-            }
-
-            # Only add seed if provided and not 0 (requires authentication)
-            if seed is not None and seed != 0:
-                params["seed"] = seed
-
-            param_str = "&".join([f"{k}={v}" for k, v in params.items()])
-            url = f"https://text.pollinations.ai/{quote(text)}?{param_str}"
-
-            response = requests.get(url, stream=True)
-
-            if response.status_code == 200:
-                # Get ComfyUI's temp directory
-                temp_dir = os.path.join(folder_paths.get_output_directory(), "pollinations_temp")
-                os.makedirs(temp_dir, exist_ok=True)
-                
-                # Generate unique filename
-                timestamp = int(time.time())
-                mp3_filename = f"pollinations_speech_{timestamp}.mp3"
-                mp3_path = os.path.join(temp_dir, mp3_filename)
-                
-                # Save MP3 file
-                with open(mp3_path, 'wb') as f:
-                    for chunk in response.iter_content(chunk_size=8192):
-                        f.write(chunk)
-                
-                # Load and process audio
-                waveform, sample_rate = torchaudio.load(mp3_path)
-                
-                # Ensure mono audio (take mean if stereo)
-                if waveform.shape[0] > 1:
-                    waveform = waveform.mean(dim=0, keepdim=True)
-                
-                # Add batch dimension if needed
-                if waveform.dim() == 2:
-                    waveform = waveform.unsqueeze(0)
-                
-                # Normalize audio
-                if waveform.numel() > 0:
-                    max_val = waveform.abs().max()
-                    if max_val > 0:
-                        waveform = waveform / max_val
-                
-                # Return audio in ComfyUI format
-                audio_dict = {
-                    "waveform": waveform,
-                    "sample_rate": sample_rate
-                }
-                
-                return (audio_dict, mp3_path)
-            elif response.status_code == 402:
-                # Payment required - authentication needed (usually when using seed)
-                error_msg = "Text-to-Speech with seed parameter requires authentication. Remove seed or visit https://auth.pollinations.ai to get authentication."
-                print(f"[PollinationsTextToSpeech] {error_msg}")
-                return ({"waveform": torch.zeros(1, 1, 16000), "sample_rate": 16000}, "")
-            else:
-                print(f"[PollinationsTextToSpeech] Error: HTTP {response.status_code} - {response.text[:200]}")
-                return ({"waveform": torch.zeros(1, 1, 16000), "sample_rate": 16000}, "")
-        except Exception as e:
-            print(f"[PollinationsTextToSpeech] Exception: {str(e)}")
-            return ({"waveform": torch.zeros(1, 1, 16000), "sample_rate": 16000}, "")
-
-    @classmethod
-    def IS_CHANGED(cls, **kwargs):
-        return float("NaN")
 
 NODE_CLASS_MAPPINGS = {
     "PollinationsImageGen": PollinationsImageGen,
     "PollinationsTextGen": PollinationsTextGen,
     "PollinationsSearch": PollinationsSearch,
-    "PollinationsTextToSpeech": PollinationsTextToSpeech,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "PollinationsImageGen": "Image Gen 🖼️ (Pollinations)",
     "PollinationsTextGen": "Text Gen 📝 (Pollinations)",
     "PollinationsSearch": "Search 🔍 (Pollinations)",
-    "PollinationsTextToSpeech": "Text To Speech Chat 🔊 (Pollinations)",
 }

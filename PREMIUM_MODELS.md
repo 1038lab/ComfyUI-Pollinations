@@ -1,5 +1,8 @@
 # Pollinations Premium Models
 
+## ⚠️ Text-to-Speech Migration (v1.3.0)
+**BREAKING CHANGE**: The basic `PollinationsTextToSpeech` node has been removed due to severe API limitations (only ~10 predefined words supported). Use `Premium Text-to-Speech 🔑` node instead for unlimited text conversion.
+
 ## Overview
 Premium models require authentication and tier-based access from Pollinations.ai. These models offer enhanced capabilities but need API tokens.
 
@@ -9,9 +12,9 @@ Premium models require authentication and tier-based access from Pollinations.ai
 - **gptimage**: Advanced image generation (requires "flower tier")
 - **kontext**: Image-to-image editing and enhancement (requires "seed tier")
 
-### 🔑 Premium Text-to-Speech (Private Mode Only)
-- **openai-audio**: OpenAI GPT-4o Mini Audio Preview (works anonymously, private mode requires "seed tier")
-- **hypnosis-tracy**: Hypnosis Tracy voice model (works anonymously, private mode requires "seed tier")
+### 🔑 Premium Text-to-Speech (Authentication Required)
+- **openai-audio**: OpenAI GPT-4o Mini Audio Preview (requires API token)
+- **hypnosis-tracy**: Hypnosis Tracy voice model (requires API token)
 
 ## How to Get Access
 
@@ -20,7 +23,7 @@ Premium models require authentication and tier-based access from Pollinations.ai
 3. **Request Tier Access**:
    - For gptimage: Request "flower tier" access
    - For kontext: Request "seed tier" access
-   - For text-to-speech private mode: Request "seed tier" access
+   - For text-to-speech: Request "seed tier" access
 4. **Get API Token**: Copy your API token from the dashboard
 
 ## Using Premium Nodes
@@ -37,12 +40,12 @@ Premium models require authentication and tier-based access from Pollinations.ai
 - **Models**: gptimage, kontext
 - **Features**: Advanced image-to-image editing
 
-### Text-to-Speech (Private Mode) 🔑
-- **Node**: `PollinationsTextToSpeech`
-- **Required**: Text input, authentication only for private mode
+### Premium Text-to-Speech 🔑
+- **Node**: `PollinationsPremiumTextToSpeech`
+- **Required**: API token, text input
 - **Models**: openai-audio, hypnosis-tracy
-- **Features**: High-quality voice synthesis with multiple voice options
-- **Note**: Works without authentication by default, private mode requires authentication
+- **Features**: Unlimited text conversion, seed control, private mode, multiple voice options
+- **Note**: Replaces the removed basic text-to-speech node
 
 ## Setup Instructions
 
@@ -68,8 +71,8 @@ Premium models require authentication and tier-based access from Pollinations.ai
 ### Premium Models (Authentication Required)
 - **gptimage**: Enhanced image generation with better prompt understanding
 - **kontext**: Advanced image editing and enhancement capabilities
-- **openai-audio (private mode)**: High-quality text-to-speech with multiple voices
-- **hypnosis-tracy (private mode)**: Alternative text-to-speech model
+- **openai-audio**: High-quality text-to-speech with multiple voices
+- **hypnosis-tracy**: Alternative text-to-speech model
 
 ## Support
 
