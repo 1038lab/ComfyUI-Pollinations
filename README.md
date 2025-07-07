@@ -5,6 +5,8 @@
 ComfyUI-Pollinations is a custom node for ComfyUI that utilizes the Pollinations API to generate images and text based on user prompts. This library provides two main functionalities: image generation and text generation, allowing users to create visual and textual content easily.
 
 ## Update
+- **V1.3.0 (2025-07-06)**: 🔑 **Premium Models Support** - Added authentication-required models (gptimage, kontext) with separate premium nodes. Fixed text-to-speech to work without authentication. Added premium TTS node. See [PREMIUM_MODELS.md](PREMIUM_MODELS.md) for setup guide. ( [update.md](update.md#v130-20250706) )
+
 - V1.2.1 (2025-06-19): requirments.txt update
 
 - V1.2.0 (2025-05-31): Add Text to Speech feature using Pollinations API ( [update.md](update.md#v110-20250305) )
@@ -16,14 +18,23 @@ ComfyUI-Pollinations is a custom node for ComfyUI that utilizes the Pollinations
 ![v1 1 0](https://github.com/user-attachments/assets/c2391cc6-3284-4d14-aa91-7bb0145028db)
 (This the `i18n` Demo with `Chinese` UI)
 
-##Support Model List
+## Support Model List
 
-#### Image Generation Model
+#### Free Image Generation Models (No Authentication Required)
 
-|image Models                   |
-|-------------------------------|
-| flux                          |
-| turbo                         |
+| Free Models | Description |
+|-------------|-------------|
+| flux        | High-quality image generation |
+| turbo       | Ultra-fast image generation |
+
+#### 🔑 Premium Image Models (Requires API Token)
+
+| Premium Models | Description | Required Tier |
+|----------------|-------------|---------------|
+| gptimage       | Advanced image generation with enhanced prompt understanding | flower tier |
+| kontext        | Professional image-to-image editing and enhancement | seed tier |
+
+**Setup Premium Models**: Get API token from https://auth.pollinations.ai - See [PREMIUM_MODELS.md](PREMIUM_MODELS.md) for detailed guide.
 
 | Text Generation Models       | Text Generation Models       | Text Generation Models       | Text Generation Models       |
 |-------------------------------|-------------------------------|-------------------------------|-------------------------------|
@@ -93,11 +104,67 @@ ComfyUI-Pollinations is a custom node for ComfyUI that utilizes the Pollinations
 - **Function**: Converts text to speech audio using OpenAI's audio models through Pollinations API.
 - **Input Parameters**:
   - `text`: The text to convert to speech.
-  - `voice`: The voice to use for speech generation (e.g., "nova", "alloy", "echo", "fable", "onyx", "shimmer").
-  - `seed`: Random seed for generation.
-  - `private`: Whether the generation is private.
+  - `model`: Text-to-speech model ("openai-audio" or "hypnosis-tracy")
+  - `voice`: The voice to use for speech generation (e.g., "nova", "alloy", "echo", "fable", "onyx", "shimmer", "coral", "verse", "ballad", "ash", "sage", "amuch", "dan").
+  - `seed` (optional): Random seed for generation (requires authentication).
 - **Output**:
   - `audio`: Audio file path that can be used with audio playback nodes.
+- **Note**: Works without authentication by default. Seed parameter requires authentication.
+
+## 💎 Premium Nodes (Authentication Required)
+
+### 1. PollinationsPremiumImageGen 🔑
+
+- **Function**: Enhanced image generation with premium models like GPTImage and Kontext.
+- **Input Parameters**:
+  - `api_token`: Your Pollinations API token (get from https://auth.pollinations.ai)
+  - `prompt`: Text description of the image you want to generate.
+  - `model`: Premium model to use ("gptimage" or "kontext")
+  - `width`, `height`: Image dimensions (64-2048px)
+  - `seed`: Random seed for reproducible results
+  - `count`: Number of images to generate (1-4)
+  - `enhance`: Enable prompt enhancement
+  - `nologo`: Remove Pollinations logo
+  - `private`: Keep generation private
+  - `safe`: Enable safe mode
+  - `transparent`: Generate with transparent background
+- **Output**:
+  - `images`: Generated images
+  - `urls`: Direct URLs to the images
+  - `prompts`: Enhanced prompts used for generation
+
+### 2. PollinationsPremiumImageEdit 🔑
+
+- **Function**: Advanced image editing and enhancement using premium models.
+- **Input Parameters**:
+  - `api_token`: Your Pollinations API token
+  - `image`: Input image to edit
+  - `prompt`: Description of desired changes
+  - `model`: Premium model to use ("gptimage" or "kontext")
+  - `width`, `height`: Output dimensions
+  - `seed`: Random seed
+  - `enhance`: Enable prompt enhancement
+  - `nologo`: Remove Pollinations logo
+  - `private`: Keep generation private
+- **Output**:
+  - `image`: Edited image
+  - `url`: Direct URL to the edited image
+  - `prompt`: Enhanced prompt used for editing
+
+### 3. PollinationsPremiumTextToSpeech 🔑
+
+- **Function**: Premium text-to-speech with full feature access including seed control and private mode.
+- **Input Parameters**:
+  - `api_token`: Your Pollinations API token (requires "seed tier" or higher)
+  - `text`: The text to convert to speech.
+  - `model`: Text-to-speech model ("openai-audio" or "hypnosis-tracy")
+  - `voice`: The voice to use for speech generation (13 voices available)
+  - `seed` (optional): Random seed for reproducible results
+  - `private` (optional): Keep the generation private (default: true)
+- **Output**:
+  - `audio`: High-quality audio file
+  - `filename`: Generated filename
+- **Note**: Provides full access to all text-to-speech features with authentication.
 
 ### Image Feed and Text Feed Model
 
